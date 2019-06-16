@@ -1,0 +1,40 @@
+javascript中五种迭代方法实例：
+
+<script type="text/javascript">
+    var arr = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+
+    //所有项为false，则为false
+    //否则直到遍历到第一个为true的值，返回true
+    //类似于数学里的‘或’
+    console.log(arr.some(function (item, index, array) {
+        console.log('type=some,' + 'item=' + item + ',index=' + index + ',array=' + array);
+        return item > 3;
+    }));
+
+    //所有项都为true，则返回true
+    //否则遍历到第一个为false的值，返回false
+    //类似于数学里的‘与’
+    console.log(arr.every(function (item, index, array) {
+        console.log('type=every,' + 'item=' + item + ',index=' + index + ',array=' + array);
+        return item > 3;
+    }));
+
+    //遍历完全，返回由结果为true的值组成的数组
+    console.log(arr.filter(function (item, index, array) {
+        //console.log('type=filter,' + 'item=' + item + ',index=' + index + ',array=' + array);
+        return (item > 3);
+
+    }));
+
+    //遍历完全，将每一项带入函数，返回由结果组成的数组
+    console.log(arr.map(function (item, index, array) {
+        //console.log('type=filter,' + 'item=' + item + ',index=' + index + ',array=' + array);
+        return (item * 3);
+
+    }));
+
+    //遍历完全，类似for循环
+    arr.forEach(function (item, index, array) {
+        console.log('type=forEach,' + 'item=' + item + ',index=' + index + ',array=' + array);
+    });
+</script>
